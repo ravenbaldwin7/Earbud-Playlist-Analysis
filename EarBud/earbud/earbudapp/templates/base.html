@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8"/>
+    <meta
+        name = "viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <title>{% block title %}{% endblock %} Earbud</title>
+    {% endblock %}
+</head>
+<style>
+    body {font-family: "Roboto", sans-serif; color : #1ED760; background-color: black}
+
+    </style>
+<body>
+{% block content %}
+    {% load static %}
+    <img src="{% static 'earbud.png' %}" width = 300>
+    <h2>Add Song</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form_add_data.as_p }}
+        <button type="submit"  name = "add_song">Add Song</button>
+    </form>
+    <hr>
+    <h3>Delete Song</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form_remove_data.as_p }}
+        <button type="submit" name = "delete_song">Delete Song</button>
+    </form>
+{% endblock content %}
+    </div>
+</body>
+</html>
