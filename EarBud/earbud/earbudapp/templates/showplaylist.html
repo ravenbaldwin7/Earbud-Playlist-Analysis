@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{%     block content     %}
+<style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Artist</th>
+            <th>Title</th>
+            <th>Album</th>
+            <th>Genre</th>
+            <th>Release Year</th>
+            <th>Song Length</th>
+        </tr>
+
+        {% for item in playlist_attributes %}
+            <tr>
+                <td>{{ item.artist }}</td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.album }}</td>
+                <td>{{ item.genre }}</td>
+                <td>{{ item.releaseYear }}</td>
+                <td>{{ item.songLength }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,14 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action = "" method = "post">
-    {% csrf_token %}
-    {{form }}
-    <input type="submit" name= "Add Data" value=Submit">
-</form>
-</body>
-</html>
+{% extends "base.html" %}
+{%     block content     %}
+
+    <h2>Add Song</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form_add_data.as_p }}
+        <button type="submit"  name = "add_song">Add Song</button>
+    </form>
+    <hr>
+    <h3>Delete Song</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form_remove_data.as_p }}
+        <button type="submit" name = "delete_song">Delete Song</button>
+    </form>
+    <h3>Edit Song</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form_edit_data.as_p }}
+        <button type="submit" name = "edit_song">Edit</button>
+    </form>
+
+{% endblock %}

@@ -14,25 +14,23 @@
 </head>
 <style>
     body {font-family: "Roboto", sans-serif; color : #1ED760; background-color: black}
-
+    .topnav {overflow: hidden; background-color: black;}
+    .topnav a {float: left; color: #f2f2f2; text-align: center; padding: 14px 16px;
+        text-decoration: none; font-size: 17px;
+    }
     </style>
 <body>
-{% block content %}
+<div class="topnav">
     {% load static %}
-    <img src="{% static 'earbud.png' %}" width = 300>
-    <h2>Add Song</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form_add_data.as_p }}
-        <button type="submit"  name = "add_song">Add Song</button>
-    </form>
-    <hr>
-    <h3>Delete Song</h3>
-    <form method="post">
-        {% csrf_token %}
-        {{ form_remove_data.as_p }}
-        <button type="submit" name = "delete_song">Delete Song</button>
-    </form>
+    <img src="{% static 'earbud.png' %}" width = 300 style="float: left;">
+  <a class="active" href="{% url 'home' %}">Home</a>
+  <a href="{% url 'adddata' %}">Edit Data</a>.
+  <a href="{% url 'showplaylist' %}">View Playlist</a>
+  <a href="{% url 'generatereport' %}">Generate Report</a>
+</div>
+
+{% block content %}
+
 {% endblock content %}
     </div>
 </body>

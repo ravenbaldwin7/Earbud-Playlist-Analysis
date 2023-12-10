@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ block.super }}
+    <style>
+        .welcome-container {
+            text-align: center;
+            margin: 50px;
+        }
+        .welcome-container h2 {
+            color: #1ED760;
+        }
+        .welcome-container p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="welcome-container">
+        <h2>Welcome to Earbud!</h2>
+        <p>Navigate to edit data to modify your playlist,
+            view playlist to see the current state of the playlist, and generate report to see your playlist analysis.</p>
+    </div>
+{% endblock %}
